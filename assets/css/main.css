@@ -1,0 +1,534 @@
+﻿/* RESET - HTML 5 */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block}nav ul, ul, ol {margin:0;padding:0;list-style:none}blockquote, q {quotes:none}blockquote:before, blockquote:after,q:before, q:after {content:''; content:none}del {text-decoration: line-through}abbr[title], dfn[title] {border-bottom:1px dotted; cursor:help}table {border-collapse:collapse; border-spacing:0}
+
+/** PRIMARY STYLES
+ * ----------------------------------------- */
+* {outline: medium none; word-wrap: break-word; line-height: 1; box-sizing: border-box; color: #353535; font-family: "robotoregular", Sans-Serif;}
+html, body, a, input, option, textarea, td, th {outline: none}
+html {overflow-y: scroll;height: 100%;}
+main {height: 100%;}
+body {font-size: 16px; line-height: 1;height: 100%; background:#ffffff }
+h1, h2, h3, h4, h5, h6 {font-weight: normal;}
+img { vertical-align: middle; display: block }
+fieldset { border: 0; margin: 0;  padding: 0; }
+textarea { resize: vertical;}
+a, a:active, a:focus{ text-decoration: none; outline: none }
+a, h3, h4, input[type=submit]{ -webkit-transition:all 0.2s ease-in-out; -moz-transition:all 0.2s ease-in-out; -o-transition:all 0.2s ease-in-out; transition:all 0.2s ease-in-out;}
+.field-validation-error{ color: Red; font-size: 12px; }
+
+
+/** classes Reutilizáveis
+ * ----------------------------------------- */
+.clearfix:before, .clearfix:after { content: " "; /* 1 */ display: table; /* 2 */}
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+.rpl {display: block; text-indent: -9999px; border: 0; font-size: 0}
+.show {display: block !important}
+.hide {display: none !important}
+.left {float: left !important}
+.right {float: right !important}
+.clear {clear: both !important}
+.no-border{border: 0px !important}
+.last{ margin-right: 0 !important }
+
+.container{ 
+    height: 100%; 
+    /*position: relative; */
+}
+a, button, input[type=submit] { transition: all .1s linear }
+
+/** Estrutura
+* ----------------------------------------- */
+.container{
+    padding: 0;
+    width: 100%;
+}
+
+/** Font Google
+* ----------------------------------------- */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300i,400,500,700,900');
+/*
+300i = Roboto Light Italic
+400 = Roboto-Regular
+500 = Roboto Medium
+700 = Roboto Bold
+900 = Roboto Black
+*/
+
+
+/** Textos - Alinhamento Bloco - Botões - Icones
+ * ----------------------------------------- */
+ /* Botões */
+.btn{
+	width: 100%;
+	height: 50px;
+    border-radius: 4px;    		
+    border: 0;
+}
+    .btn span{
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;    
+        font-size: 14px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+        .btn--laranja{ 
+            background:#ff7321;             
+            box-shadow: 0 2px 0 0 #e16218;
+        }
+            .btn--laranja:hover{ 
+                background:#ff6103;             
+            }
+            .btn--laranja span{
+                color: #ffffff;
+            }
+        
+        .btn--laranja-bgbranco{ 
+            background:#ffffff;             
+            border: solid 2px #f9b085;                
+        }
+            .btn--laranja-bgbranco span{
+                color: #f8b085;
+            }
+                .btn--laranja-bgbranco:hover{ 
+                    border-color:#f59c67;
+                }
+                .btn--laranja-bgbranco:hover span{ 
+                    color: #f59c67;
+                }
+            
+
+.btn-quadrado{
+	width: 46%;
+    height: 0;
+    padding-bottom: 46%;
+    margin: 2%;
+    float: left;
+    position: relative;	
+	border:0;
+}
+ 
+.btn--retangulo{
+	width: 100%;
+    height: 0;
+    padding-bottom: 17%;
+    position: relative;	
+	border:0;
+	display: inline-block;
+}
+.btn-quadrado .btn-bloco,
+.btn--retangulo .btn-bloco{
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	left:0
+} 
+.btn--retangulo.btn-retangulo-hidden .btn-bloco ,
+.btn-quadrado.btn-quadrado-hidden .btn-bloco { background: transparent }
+
+
+.btn--retangulo .btn-bloco:before,
+.btn-quadrado .btn-bloco:before {
+	content: '';
+	display: inline-block;
+	height: 100%; 
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+
+.ct-gpt-content .btn--retangulo .btn-bloco:before,
+.ct-gpt-content .btn-quadrado .btn-bloco:before{ margin-top:.4em; }
+
+.btn-bloco-centralizar {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	color: #FFF;
+}
+
+/* Alinhamento bloco */
+.center-elemento{
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.center-elemento-inferior{
+	align-items: flex-end;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+/* Rentangulos e quadrados reponsivos */
+.retangulo{
+	width: 100%;
+    height: 0;
+    padding-bottom: 20%;
+    position: relative;	
+	border:0;
+	display: inline-block;
+}
+.quadrado .bloco, .retangulo .bloco{
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	left:0
+} 
+
+.retangulo .btn-bloco:before{
+	content: '';
+	display: inline-block;
+	height: 100%; 
+	vertical-align: middle;
+	margin-right: -0.25em;
+} 
+
+
+/** Header
+ * ----------------------------------------- */
+.header {
+	background: #e0180c;
+    position: relative;
+    padding-bottom: 8vh;
+}
+    .header__logo{
+        padding: 0;
+        z-index: 10;
+        position: relative;
+    }
+        .header__logo-img{
+            margin: 0 auto;
+            width: 20%
+        }
+
+    .header__voltar{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        width: 5%;
+        position: absolute;
+        top: 0px;
+        left: 2em;
+        z-index: 100;
+        visibility: hidden;
+    }
+        .header__voltar-img{
+            margin: 0 auto;
+            width: 85%;
+        }
+    
+.header h1{ 
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    text-indent: 5px;
+}
+
+
+
+
+/** Form
+ * ----------------------------------------- */
+.form{
+    padding-bottom: 30vh;
+}
+    
+    .form .form-group{
+        position: relative;
+    }
+    .form .bloco{
+        
+        left: 50%;
+        top: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        height: auto;
+        padding: 0 2em;
+    }
+    .form-input{
+        height: 50px;        
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        color: #000000;        
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+    }  
+        .form-input.error{
+            background-color: rgba(236, 192, 192, 0.26);
+            border: solid 1px #dda1a1;
+        }  
+        .form .icon--alerta{
+            position: absolute;
+            right: 20px;
+            top: 15px;    
+            display: none;
+        }
+
+        ::-webkit-input-placeholder { 
+            font-style: italic;
+            color: rgba(0, 0, 0, 0.4);
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+            font-style: italic;
+            color: rgba(0, 0, 0, 0.4);
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+        }
+        :-ms-input-placeholder { /* IE 10+ */
+            font-style: italic;
+            color: rgba(0, 0, 0, 0.4);
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+
+
+
+/** Regulamento
+ * ----------------------------------------- */
+
+
+
+
+/** Icones
+ * ----------------------------------------- */
+.icon{
+    display: block;
+}
+    .icon--alerta{
+        background: url("../img/icon/alert-icon-red.svg") no-repeat;
+        width: 22px;
+        height: 19px;
+    }
+
+
+/** Textos
+ * ----------------------------------------- */
+.txt-default{
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4em;
+}    
+    .txt-rm-22{
+        font-size:1.4em;
+        line-height: 1.2em;
+        font-weight: 500;
+    }
+        .txt-rm-22--preto{
+            color: #000000;
+        }
+    
+    .txt-rr-14{
+        font-size:0.9em;
+        font-weight: 400;
+    }
+        .txt-rr-14--preto{
+            color: rgba(0, 0, 0, 0.6);
+        }
+        
+    .txt-rl-14{
+        font-size:0.9em;
+        font-weight: 300;
+    }
+        .txt-rl-14--preto{
+            color: rgba(0, 0, 0, 0.6);
+        }
+    
+    .txt-link{
+        color: #cc3333;
+    }
+        .txt-link:hover{
+            color: #f96942;            
+        }
+
+
+/** Steps
+ * ----------------------------------------- */
+.steps{    
+    height: 92vh;
+}
+    .steps > div{
+        padding: 15px;        
+        background: #fff;
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+    }
+    .steps > div:not(:first-of-type){
+        display:none
+    }
+
+    .header-title{
+        padding-bottom: 35vh;
+        background: #fafafa;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .header-title .bloco{
+        left: 50%;
+        top: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        height: auto;
+        padding: 0 2em
+    }    
+    .header-title h2, 
+    .header-title img{
+        margin-bottom: 0.7em;
+    }
+
+    .header-step2,
+    .header-step3{
+        display: none;
+    }
+    
+    /*step 1*/
+    .steps-1{
+        text-align: center;
+    }
+        .lkn-regulamento{
+            padding-bottom: 24vh;
+        }
+        .lkn-regulamento .bloco{    
+            left: 50%;
+            top: 70%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            height: auto;
+            padding: 0 2em;
+        }
+
+    /*step 2*/       
+    .step-2 .lkn-share{                        
+        font-weight: 700;                                                            
+    }
+
+    /*step 3 - regulamento*/    
+    .step-3 .info{
+        padding: 1.5em 1em 0 1em;
+    }
+    .step-3 .info p{
+        margin-bottom: 1.2em;
+        line-height: 1.2em;
+    }
+        .step-3 .info strong{
+            font-weight: 600;
+            margin-top: 0.8em;
+            display: inline-block;
+        }
+
+
+
+
+/** Media Queries
+ * ----------------------------------------- */
+html { font-size: 16px;}
+	
+@media (min-width: 300px) {
+	html { font-size: 12px;}
+}
+@media (min-width: 400px) {
+
+}
+@media (min-width: 500px) {
+	html { font-size: 16px;}
+}
+@media (min-width: 600px) {
+	html { font-size: 20px;}
+}
+
+ 
+@media (max-width: 1000px){
+
+}
+
+
+/* All media - max width 780pixels */
+@media (max-width: 800px){	
+
+}
+
+@media (max-width: 800px) and (orientation: landscape){
+
+}
+
+
+@media (max-width: 780px)and (orientation: portrait){
+	
+}
+
+/* All media - max width 780pixels - orietation portrait */
+@media (max-device-width: 780px) and (orientation: portrait){
+	
+}
+
+
+/* All media - max width 640pixels */
+@media (max-width: 610px){
+	
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) 
+and (orientation : portrait) { 
+
+/*
+@media (min-width: 110px){
+*/
+	
+	
+}
+
+@media (min-width: 310px) and (max-width: 570px){
+	
+} 
+
+
+@media (min-width: 320px) and (orientation: landscape){
+
+    .pg-fatura-home.container, html{position: relative !important}
+	
+}
+
+@media (min-width: 320px) and (orientation: portrait){
+
+
+	
+} 
+
+
+/*rever*/
+
+
+html{min-height: 100%; height:auto; position: relative}
+
+
+
+
+/** Chat
+ * ----------------------------------------- */
+html.pg-chat{height:100%;height: 100%;}
+    

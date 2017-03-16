@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        
+    <!-- seo -->
+    <meta name="description" content="" />
+    <meta name="robots" content="index, follow" />
+    <meta name="copyright" content="© 2017 SKY" />
+    <meta name="author" content="SKY" />
+
+    <!-- mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Icons 
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/ico/favicon.ico" />
+    -->
+    
+    <!-- CSSs -->
+    <link href="assets/css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    
+    <!-- js -->
+    <script src="assets/scripts/libs/modernizr-custom.js" type="text/javascript"></script>
+    <script src="assets/scripts/libs/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="assets/scripts/jqueryPlugin/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="assets/scripts/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+    
+
+</head>
+<body>
+    <main class="container">
+        
+        <!-- Header -->
+        <header class="header retangulo">
+            <div class="bloco">                    
+                <a href="#" class="header__voltar lkn_voltar">
+                    <img class="header__voltar-img" src="assets/img/icon/arrow-left.svg" alt="Voltar" />                    
+                </a>
+                <h1 class="header__logo col-xs-12 col-sm-12">
+                    
+                    <!--<img src="assets/img/logo.png" srcset="assets/img/logo@2x.png 2x, assets/img/logo@3x.png 3x" class="header__logo-img" alt="SKY" />-->
+                    <img class="header__logo-img" src="assets/img/logo.svg" alt="SKY" />
+                </h1>                
+            </div>
+        </header>
+
+        <!-- content -->
+        <section class="content steps">
+           
+            <!-- STEP 1 - Digita PDV-->
+            <div id="step-1" class="step step-1">
+
+                <div class="header-title retangulo">
+                    <div class="bloco">
+                        <hgroup class="header-step header-step1 active">
+                            <h2><strong class="txt-default txt-rm-22 txt-rm-22--preto">Campanha de incentivo <br /> ao credenciado</strong></h2>
+                            <h3 class="txt-default txt-rr-14 txt-rr-14--preto">Digite abaixo o número de PDV para<br /> gerar o link de sua campanha</h3>
+                        </hgroup>                        
+                        <hgroup class="header-step header-step2">
+                            <img class="header__logo-img" src="assets/img/icon/alert-icon.svg" alt="SKY" />
+                            <h3 class="txt-default txt-rr-14 txt-rr-14--preto">Favor digite seu PDV.</h3>
+                        </hgroup>
+                        <hgroup class="header-step header-step3">
+                            <img class="header__logo-img" src="assets/img/icon/alert-icon.svg" alt="SKY" />
+                            <h3 class="txt-default txt-rr-14 txt-rr-14--preto">O PDV nº <strong class="num_pdv">0364505</strong> não existe.<br/> Favor digitar novamente</h3>
+                        </hgroup>
+                    </div>
+                </div>
+                
+                <form id="formPDV" class="col-xs-12 col-sm-12 retangulo form">
+                    <fieldset class="bloco">
+                        <div class="row">
+                            <div class="form-group">
+                                <!--error-->
+                                <input class="form-control form-input form-input--text" name="txtPDV" type="text" placeholder="Digite aqui seu PDV" />
+                                <i class="icon icon--alerta"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <a href="#step-2" class="btn btn--laranja" id="lkn_submit">
+                                    <cite class="btn-bloco">
+                                        <strong class="bc-bt-loading"></strong>
+                                        <i class="bt-loading"></i>
+                                        <span>Gerar Link</span>	
+                                    </cite>
+                                </a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div class="lkn-regulamento retangulo">
+                    <div class="bloco">
+                        <a href="#step-3" class="lkn_prox txt-default txt-rr-14 txt-link">Regulamento da campanha</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /STEP 1-->
+
+            <!-- STEP 2 - Share PDV-->
+            <div id="step-2" class="step step-2">
+
+                <div class="header-title retangulo">
+                    <div class="bloco">
+                        <hgroup class="header-step">                            
+                            <h2 class="txt-default txt-rr-14 txt-rr-14--preto">Para pontuar na campanha<br /> compartilhe o link do<br /> PDV nº <strong class="num_pdv">465781</strong></h2>
+                            <a href="javascript:void(0);" class="lkn-share txt-link txt-rm-22">minhasky.com.br/0364505</a>
+                        </hgroup>                                                
+                    </div>
+                </div>
+                
+                <form id="formPDV" class="col-xs-12 col-sm-12 retangulo form">
+                    <fieldset class="bloco">                        
+                        <div class="row">
+                            <div class="form-group">
+                                <a class="btn btn--laranja">
+                                    <cite class="btn-bloco">
+                                        <strong class="bc-bt-loading"></strong>
+                                        <i class="bt-loading"></i>
+                                        <span>Compartilhar</span>	
+                                    </cite>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <a href="#step-1" class="btn btn--laranja-bgbranco lkn_voltar">
+                                    <cite class="btn-bloco">
+                                        <strong class="bc-bt-loading"></strong>
+                                        <i class="bt-loading"></i>
+                                        <span>Gerar Link Novamente</span>	
+                                    </cite>
+                                </a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div class="lkn-regulamento retangulo">
+                    <div class="bloco">
+                        <a href="#step-3" class="lkn_prox txt-default txt-rr-14 txt-link">Regulamento da campanha</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /STEP 2-->
+
+            <!-- STEP- 3 Regulamento-->
+            <div id="step-3" class="step step-3">
+
+                <div class="header-title retangulo">
+                    <div class="bloco">
+                        <hgroup>
+                            <h2><strong class="txt-default txt-rm-22 txt-rm-22--preto">Campanha de incentivo <br /> ao credenciado</strong></h2>
+                            <h3 class="txt-default txt-rr-14 txt-rr-14--preto">Digite abaixo o número de PDV para<br /> gerar o link de sua campanha</h3>
+                        </hgroup>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 retangulo">
+                    <div class="info">
+                        <p><strong class="txt-default txt-rl-14 txt-rl-14--preto">Leia com atenção os termos e condições abaixo.</strong></p>
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            Este Termo de Uso (“Contrato”) é celebrado de um lado por SKY BRASIL SERVIÇOS LTDA. (“SKY”), empresa com sede administrativa na Avenida das Nações Unidas, n.o 12.901, 14o e 15o andar – Torre Norte – CENU, na Cidade e Estado de São Paulo, CEP 04.578-910, inscrita no CNPJ sob no 72.820.822/0001-20, com Inscrição Estadual sob o no 113.905.179.112 e com filial na Avenida Marcos Penteado de Ulhoa Rodrigues, no. 1000, Santana de Parnaíba, São Paulo, inscrita no CNPJ/MF sob o no. 72.820.822/0027-69, e, de outro lado, pelo usuário SKY que efetua seu cadastro no aplicativo SKY (“USUÁRIO”), nos termos aqui definidos. 
+                        </p>
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            A celebração desse Contrato com a respectiva aceitação integral de seus termos e condições se dará automaticamente mediante cadastro e acesso ao APLICATIVO, conforme definido abaixo, e uso do APP SKY pelo USUÁRIO.<br/>
+                            A SKY compromete-se a divulgar no APLICATIVO e/ou em outros meios de comunicação as novas versões do presente Contrato, ficando facultado ao USUÁRIO o direito desinstalar o Aplicativo quando desejar. Após esse prazo, passam a vigorar as novas condições contratuais. A utilização do APP SKY pelo USUÁRIO após tal prazo de divulgação significará aceitação dessas modificações.
+                        </p>
+
+                        <p><strong class="txt-default txt-rl-14 txt-rl-14--preto"> 1. DEFINIÇÕES</strong></p>                        
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            1.1. Para os efeitos do presente Contrato, palavras e/ou expressões constantes nessa cláusula terão o significado estabelecido abaixo:<br/>
+                            USUÁRIO: Assinante dos serviços SKY que se cadastra no APLICATIVO e utiliza o APP SKY nos termos desse Contrato e do APLICATIVO, disponíveis no momento da contratação.<br/>
+                            CONTEÚDO: todo conteúdo disponibilizado no APP SKY, incluindo mas não se limitando a informações de conta, registros de atendimento, assistência técnica, filmes, series, shows, dicas de programação entre outros.<br/>
+                            DISPOSITIVO: Equipamentos moveis conectados a Internet, com acesso ao APLICATIVO com os sistemas operacionais Android 4.2 ou IoS 8.0<br/>
+                            APLICATIVO ou APP SKY: aplicação da Internet de propriedade da SKY acessível através do seu respectivo download nas lojas virtuais Play Store e App Store
+                        </p>
+                        
+                        <p><strong class="txt-default txt-rl-14 txt-rl-14--preto"> 2. OBJETO</strong></p>
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            Constitui objeto desse Contrato o licenciamento pela SKY ao USUÁRIO, através do APP SKY, de CONTEÚDO, mediante uma das modalidades descritas nesse Contrato e especificadas no APLICATIVO no momento do seu cadastro.
+                        </p>
+                        
+                        <p><strong class="txt-default txt-rl-14 txt-rl-14--preto"> 3. DISPONIBILIZAÇÃO DO CONTEÚDO</strong></p>
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            3.1. O USUÁRIO desde já concorda que poderá receber dicas baseadas em sua atividade online e que deverá ser assinante SKY para acessar o aplicativo e o conteúdo sugerido.<br/>
+                            3.4.1 Em nenhuma hipótese poderá o USUÁRIO copiar, duplicar, transferir ou tentar transferir, alterar ou remover, disponibilizar em quaisquer outros meios (incluindo redes sociais e programas de compartilhamento de arquivos, file sharing, peer to peer, eDonkey, BitTorrent, etc.), disponibilizar ao público os CONTEÚDOS do APLICATIVO e/ou Extensão ou facilitar ou permitir que terceiros realizem quaisquer dessas atividades por meio de seu número de CPF/ e código. Da mesma forma, o USUÁRIO não poderá desativar ou tentar desativar ou de qualquer forma remover, alterar, degradar ou impedir a normal operação dos sistemas de segurança do APLICATIVO e dos CONTEÚDOS.<br/>
+                            3.5. A disponibilização do CONTEÚDO no APLICATIVO do APP SKY é direito exclusivo e intransferível da SKY. Fica expressamente vedado o uso comercial do CONTEÚDO independentemente da modalidade contratada, bem como a sua veiculação pública, produção de cópias, retransmissão ou qualquer outra forma de utilização que, direta ou indiretamente, tenha o intuito de lucro ou que, ainda que não o tenha, caracterize violação aos direitos do autor, ou ainda discordância dos termos desse Contrato e demais condições estabelecidas no momento da contratação.<br/>
+                            3.6. Alguns dos CONTEÚDOS disponibilizados pela SKY poderão ser produzidos por empresas independentes contratadas pela SKY. A SKY não se responsabiliza pelo CONTEÚDO, incluindo suas sinopses, legendas, dublagens, suas demais características e pela eventual disponibilização do CONTEÚDO por Aplicativos de terceiros. A adequação e o cumprimento da legislação vigente caberão única e exclusivamente aos detentores dos direitos de propriedade intelectual do CONTEÚDO. O USUÁRIO se declara ciente que não possui qualquer direito sob o CONTEÚDO salvo aqueles garantidos no momento da contratação. A propriedade e/ou titularidade dos CONTEÚDOS e de quaisquer direitos a eles relacionados permanecerá de seus respectivos proprietários e titulares.<br/>
+                            3.7. Recomenda-se a utilização dos serviços do APP SKY em Dispositivos que contenham os Requisitos Mínimos para que o USUÁRIO possa obter a melhor qualidade dos CONTEÚDOS disponíveis no APLICATIVO do APP SKY. A SKY não se responsabiliza pela qualidade das informações ou acessibilidade do dispositivo caso o USUÁRIO utilize equipamentos fora dos Requisitos Mínimos informados.
+                        </p>
+                        
+                        <p><strong class="txt-default txt-rl-14 txt-rl-14--preto"> 4. CADASTRAMENTO, DISPOSITIVOS E OBRIGAÇÕES CORRELATAS <br/> CADASTRO PESSOAL</strong></p>
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            4.1. Para utilizar do APP SKY o USUÁRIO deverá informar o seu CPF previamente no aplicativo e com isso receberá em seu dispositivo um código de acesso que deverá ser inserido para o acesso.<br/>
+                            4.1.1. Após 70 (setenta) dias, caberá ao USUÁRIO solicitar novo código de acesso , mediante o procedimento descrito no item 4.1 acima, sob pena de impossibilidade de acesso ao Aplicativo.<br/>
+                            4.2.1 O USUÁRIO responderá pelos gastos e/ou prejuízos decorrentes da eventual utilização da senha de acesso por terceiros, dependentes ou não, sendo o único e exclusivo responsável pela utilização e segurança de sua senha de acesso, assumindo quaisquer ônus que possam surgir em virtude da má utilização e guarda, até o momento em que efetivamente comunicar a SKY do extravio, perda ou roubo. A SKY não se responsabiliza por quaisquer danos decorrentes de tais fatos (i) enquanto não for informada pelo USUÁRIO sobre o extravio, perda ou roubo das senhas de acesso e (ii) durante o período de tempo necessário para realizar o bloqueio do respectivo cadastro.<br/>
+                            4.3. O número de CPF e código de acesso ao APLICATIVO do APP SKY são privativos e exclusivos do USUÁRIO. O USUÁRIO é responsável pela manutenção da senha de acesso ao APP SKY, devendo proteger-se contra sua perda ou divulgação indevida a todo tempo.<br/>
+                            4.4. Os pais e/ou os representantes legais responderão por todos os atos praticados por menores de idade sob sua responsabilidade na utilização dos serviços do APP SKY, incluindo o acesso não autorizado ao CONTEÚDO adulto e atos contrários às disposições legais deste Contrato ou estabelecidas no momento da contratação do CONTEÚDO.<br/>
+                            4.5. O USUÁRIO se compromete a fornecer informações verdadeiras, corretas, atuais e completas no momento do seu cadastramento e a manter seus dados cadastrais atualizados, tais como endereço de cobrança, conta-corrente e cartão de crédito para eventual cobrança, telefones de contato e e-mail.
+                        </p>
+                        
+                        <p><strong class="txt-default txt-rl-14 txt-rl-14--preto"> 5. PAGAMENTO</strong></p>
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            5.1. O uso do APP SKY não estará condicionado a qualquer modalidade de pagamento, excetuando-se o recurso de PAY PER VIEW E GRAVAÇÃO, que estará vinculado ao plano contratado pelo usuário para usufruir dos serviços da SKY.
+                        </p>
+                        
+                        <p><strong class="txt-default txt-rl-14 txt-rl-14--preto"> 6. OBRIGAÇÕES E RESPONSABILIDADES DO USUÁRIO</strong></p>
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            5.1. O uso do APP SKY não estará condicionado a qualquer modalidade de pagamento, excetuando-se o recurso de PAY PER VIEW E GRAVAÇÃO, que estará vinculado ao plano contratado pelo usuário para usufruir dos serviços da SKY.
+                        </p>
+
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            6.1. O USUÁRIO se obriga, dentre outras disposições previstas neste Contrato, a:<br />
+                            6.1.1. utilizar o CONTEÚDO disponibilizado pelo APP SKY nos exatos termos desse Contrato e demais condições estabelecidas no momento da contratação e apenas em caráter pessoal, privado e não comercial;<br />
+                            6.1.2. não tentar desativar ou de qualquer forma remover, alterar, degradar ou impedir a normal operação dos sistemas de segurança do APLICATIVO e dos CONTEÚDOS;<br />
+                            6.1.4. não utilizar o APP SKY para: (a) instigar, ameaçar, ofender, abalar a imagem, invadir a privacidade ou prejudicar outros usuários da Internet; (b) tentar obter acesso ilegal a bancos de dados da SKY e/ou de terceiros; (c) obter senhas e dados de terceiros
+                            sem prévia autorização ou (d) desrespeitar a lei, a moral, os bons costumes, as normas de direito autoral e/ou propriedade intelectual, os direitos à honra, à vida privada, à imagem, à intimidade pessoal e familiar;<br />
+                            6.1.5 manter os equipamentos necessários ao acesso à Internet em boas condições de uso, tomando todas as medidas de segurança necessárias à proteção de seus equipamentos, sistemas e arquivos contra a atuação indevida e invasões não autorizadas de outros usuários de Internet; e<br />
+                            6.1.6. observar as disposições contidas neste Contrato e eventuais modificações publicadas nas atualizações do Aplicativo, sob pena de a SKY, a seu exclusivo critério, rescindir o Contrato e interromper o acesso ao APP SKY temporária ou permanentemente nas hipóteses aqui estabelecidas.<br />
+                            6.2. O USUÁRIO assume todos os ônus e responsabilidades decorrentes de seus atos e de sua conduta como usuário da Internet e USUÁRIO dos serviços da SKY. O USUÁRIO responde, ainda, pelos atos que terceiros praticarem em seu nome, por meio do uso de seu número de CPF e código, incluindo menores de idade. O USUÁRIO SE COMPROMETE A INDENIZAR a SKY por quaisquer custos, prejuízos e danos decorrentes de ações ou omissões que violem as disposições contidas na lei e no presente Contrato.
+                        </p>
+
+                        <p><strong class="txt-default txt-rl-14 txt-rl-14--preto">7. OBRIGAÇÕES E RESPONSABILIDADES DA SKY </strong></p>
+                        <p class="txt-default txt-rl-14 txt-rl-14--preto">
+                            7.1. A SKY se obriga a disponibilizar o APP SKY e os CONTEÚDOS correspondentes ao mesmo desde que o usuário forneça seu login e mantenha-se adimplente em relação às suas obrigações para com a SKY durante todo o período de utilização.<br/>
+                            7.1.1. A SKY não se responsabiliza por eventuais interrupções do acesso ao APP SKY em caso de: (a) deslocamento do USUÁRIO para fora da área de cobertura da empresa prestadora de serviços de telecomunicação que permite a conexão à internet ou para áreas que, embora cobertas, por algum motivo fora do controle da SKY não esteja recebendo sinal da empresa prestadora de serviços de telecomunicações; (b) caso fortuito ou força maior; (c) ações de terceiros que impeçam o acesso do USUÁRIO ao APLICATIVO; (d) a falta de fornecimento de energia elétrica para o sistema da SKY; (e) manutenções técnicas e/ou operacionais que exijam o desligamento temporário do sistema ou impossibilitem o acesso ao APLICATIVO; e (f) a ocorrências de falhas no sistema de transmissão e/ou roteamento no acesso à Internet.<br/>
+                            7.1.2 Manutenções técnicas e/ou operacionais serão previamente comunicadas ao USUÁRIO através de avisos em página do APLICATIVO e/ou por e-mail encaminhado pela SKY, a seu exclusivo critério.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /STEP- 3 Regulamento-->
+            
+        </section>
+
+    </main>    
+
+    <div class="sky-loading"></div>
+    <div class="bg-loading"></div>
+    
+    <script src="assets/scripts/main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            campanhasky.pages.init();            
+            campanhasky.pages.transicaoManipulacaoElemento();
+        });
+    </script>
+
+</body>
+</html>
