@@ -135,17 +135,6 @@ Pages.prototype.transicaoManipulacaoElemento = function () {
                         $(".header-step1").fadeIn();                        
                     });                    
                 }
-                
-                // $.ajax({ 
-                //     method: "GET",
-                //     url: "pdvs.json",                        
-                //     dataType: 'json',
-                //     async: false
-                // }).done((data) => {
-                //     console.log(data);
-                // }).fail((jqXhr) => {            
-                //     console.log('Ajax erro');
-                // });
 
                 //Submit
                 // $("#formcadastro").submit();
@@ -254,35 +243,48 @@ Pages.prototype.validaForm = function (form) {
 }
 
 Pages.prototype.verifyPDV = function(pdv){
-    var data = [
-    { "PDV": "1", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 417 },
-{ "PDV": "V900970", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 359 },
-{ "PDV": "V900967", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 355 },
-{ "PDV": "V901325", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 240 },
-{ "PDV": "V901996", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 212 },
-{ "PDV": "V901180", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 195 },
-{ "PDV": "V902186", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 191 },
-{ "PDV": "ID90330", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 165 },
-{ "PDV": "V902189", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 153 },
-{ "PDV": "V900962", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 150 },
-{ "PDV": "V901579", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 149 },
-{ "PDV": "V904128", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 149 },
-{ "PDV": "V905205", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 146 },
-{ "PDV": "V111010", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 134 },
-{ "PDV": "V902954", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 131 }
-]
+//     var data = [
+//     { "PDV": "1", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 417 },
+// { "PDV": "V900970", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 359 },
+// { "PDV": "V900967", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 355 },
+// { "PDV": "V901325", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 240 },
+// { "PDV": "V901996", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 212 },
+// { "PDV": "V901180", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 195 },
+// { "PDV": "V902186", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 191 },
+// { "PDV": "ID90330", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 165 },
+// { "PDV": "V902189", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 153 },
+// { "PDV": "V900962", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 150 },
+// { "PDV": "V901579", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 149 },
+// { "PDV": "V904128", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 149 },
+// { "PDV": "V905205", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 146 },
+// { "PDV": "V111010", "CATEGORIA": "CREDENCIADO MASTER", "QTDE FUNC ATIVOS": 134 },
+// { "PDV": "V902954", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 131 }
+// ]
 
-    var isPDV = data.filter(
-        function(data) {
-            return data.PDV == pdv;
-        }
-    );
+    $.ajax({ 
+        method: "GET",
+        url: "pdvs.json",                        
+        dataType: 'json',
+        async: false
+    }).done((data) => {
+        console.log(data);
+        var isPDV = data.filter(
+            function(data) {
+                return data.PDV == pdv;
+            }
+        );        
+    }).fail((jqXhr) => {            
+        console.log('Ajax erro');
+    });
     
+    console.log("isPDV");
+    console.log(isPDV);
     if(isPDV.length > 0){
         return true;
     }else{
         return false;
     }
+
 }
 
 Pages.prototype.init = function () {
