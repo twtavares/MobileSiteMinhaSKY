@@ -77,7 +77,7 @@ Pages.prototype.transicaoManipulacaoElemento = function () {
     
     $(".lkn_prox, .lkn_voltar, #lkn_submit, .header__voltar").click(function (e) {
         e.preventDefault();        
-
+console.log(current_fs);
         current_fs = $(this).parents(".step");                
         nextPrevHref = $(this).attr('href');
         
@@ -95,9 +95,12 @@ Pages.prototype.transicaoManipulacaoElemento = function () {
             
             if( nextPrevHref == "#step-1" ) $(".header__voltar").css("visibility", "hidden");              
             campanhasky.pages.transationsStepPrev(current_fs, nextPrevHref);
-
-        }else if ($(this).hasClass("lkn_prox") === true) { 
            
+            $(".header-step h2").animate({opacity: 1}, 100, function(){
+                $("#linkCopy").animate({opacity: 0}, 500);
+            });
+        }else if ($(this).hasClass("lkn_prox") === true) { 
+            
             $(".header__voltar").css("visibility", "visible");
             $(".header__voltar").attr("href","#"+current_fs[0].id);
             
@@ -110,6 +113,8 @@ Pages.prototype.transicaoManipulacaoElemento = function () {
                 var pdvCurrent = $("input[name=txtPDV]").val();                            
                 var verifyPDVCurrent = campanhasky.pages.verifyPDV(pdvCurrent);
                 var currentHeaderInfo = $(".header-step.active");
+                nextPrevHref =  $(this).attr('rel');
+                
                 //href="intent://minhasky.com.br/31267#Intent;scheme=minhasky;package=br.com.sky.selfcare;end"
                 var urlShare = "minhasky.com.br/"+pdvCurrent;
                 
@@ -135,9 +140,6 @@ Pages.prototype.transicaoManipulacaoElemento = function () {
                         $(".header-step1").fadeIn();                        
                     });                    
                 }
-
-                //Submit
-                // $("#formcadastro").submit();
 
             }
         }
@@ -166,9 +168,10 @@ Pages.prototype.transationsStepNext = function (current_fs, nextPrevHref) {
             current_fs.removeClass("active");
             current_fs.hide();
             animating = false;
-
+            if(nextPrevHref == "#step-2") campanhasky.pages.onShareClick();
         }
     });
+
 }
 
 //exibe step anteior
@@ -199,6 +202,7 @@ Pages.prototype.transationsStepPrev = function (current_fs, nextPrevHref) {
             if (nextPrevHref == "#step-1") {
                 $(".cadastro-social").fadeIn();
             }
+            if(nextPrevHref == "#step-2") campanhasky.pages.onShareClick();
         }
     });
 
@@ -261,37 +265,128 @@ Pages.prototype.verifyPDV = function(pdv){
 // { "PDV": "V902954", "CATEGORIA": "DISTRIBUIDOR", "QTDE FUNC ATIVOS": 131 }
 // ]
 
+    var isPDV;
     $.ajax({ 
         method: "GET",
-        url: "pdvs.json",                        
+        //window.location.origin
+        url: window.location.origin +"/MobileSiteMinhaSKY/assets/scripts/pdvs.json",                        
         dataType: 'json',
         async: false
-    }).done((data) => {
-        console.log(data);
-        var isPDV = data.filter(
+    }).done((data) => {        
+        isPDV = data.filter(
             function(data) {
                 return data.PDV == pdv;
             }
-        );        
+        );         
     }).fail((jqXhr) => {            
         console.log('Ajax erro');
     });
-    
-    console.log("isPDV");
-    console.log(isPDV);
+
     if(isPDV.length > 0){
         return true;
     }else{
         return false;
-    }
+    }  
 
+}
+
+Pages.prototype.onShareClick  = function(pdv){
+    
+    var urlShared = $(".lkn-share").text();    
+    
+    //share facebook
+    $("#btnShareFacebook").click(function(e){
+        e.preventDefault();
+         FB.ui({
+            method: 'share',
+            title: 'Conheça o App Minha SKY',            
+            href: 'https://'+urlShared,            
+            picture: window.location.origin +"/MobileSiteMinhaSKY/assets/img/share.png",                
+            caption: 'Conheça o App Minha SKY',
+            description: 'A família SKY está cada vez maior! Agora com o aplicativo Minha SKY, você pode alugar os grandes lançamentos do cinema com apenas um clique para assistir na tela da sua TV!'
+        }, function(response){
+                console.log(response);
+        });
+        
+    });
+
+    //share twitter        
+    $("#btnShareTwitter").attr('href','https://twitter.com/intent/tweet?url=https://'+urlShared+'/&text=Conheça o App Minha SKY')
+
+    //share email    
+    $("#btnShareEmail").attr('href','mailto:?subject=Conhe%E7a o App Minha SKY&body=Conhe%E7a o App Minha SKY %0A%0A A fam%EDlia SKY est%E1 cada vez maior%21 Agora com o aplicativo Minha SKY, voc%EA pode alugar os grandes lan%E7amentos do cinema com apenas um clique para assistir na tela da sua TV%21 %0A https://'+urlShared);
+
+    //share whatsapp
+    $("#btnShareWhatsapp").attr('href','whatsapp://send?text=http://www.twtavares.com.br/MobileSiteMinhaSKY');
+
+    //share copy
+    var clipboard = new Clipboard('.icon--copy');
+    $("#btnShareCopy").attr("data-clipboard-text","https://"+urlShared)
+    clipboard.on('success', function(e) {
+        $(".header-step h2").animate({opacity: 0}, 100, function(){
+            $("#linkCopy").animate({opacity: 1}, 500);
+        });        
+
+        e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+}
+
+Pages.prototype.verifyMobile = function(){
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
+    var isPdvUrl = campanhasky.pages.getParamsURL("pdv");
+    if(isPdvUrl === true){
+        if (isMobile.any("Android")){
+            location.href = "https://play.google.com/store/apps/details?id=br.com.sky.selfcare&referrer=utm_source%3Dcampanhapdv%26utm_medium%3Dhotsite%26utm_campaign%3Dpdv";            
+        }else if (isMobile.any("iOS")){
+            location.href = "https://play.google.com/store/apps/details?id=br.com.sky.selfcare&referrer=utm_source%3Dcampanhapdv%26utm_medium%3Dhotsite%26utm_campaign%3Dpdv";
+        }else{
+            location.href = "https://www.sky.com.br/app";
+        }
+    }
+    
+}
+
+Pages.prototype.getParamsURL = function(name){
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));    
 }
 
 Pages.prototype.init = function () {
     try {
 
         console.log('Main JS')        
+        campanhasky.pages.onShareClick();
+        
+        // location.href = "https://play.google.com/store/apps/details?id=br.com.sky.selfcare&referrer=utm_source%3Dcampanhapdv%26utm_medium%3Dhotsite%26utm_campaign%3Dpdv";
 
+        // intent://scan/#Intent;scheme=MinhaSKY;package=br.com.sky.selfcare;end
 
     } catch (e) {
         console.info(

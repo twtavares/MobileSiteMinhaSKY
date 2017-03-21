@@ -201,7 +201,7 @@ a, button, input[type=submit] { transition: all .1s linear }
 .header {
 	background: #e0180c;
     position: relative;
-    padding-bottom: 8vh;
+    padding-bottom: 9vh;
 }
     .header__logo{
         padding: 0;
@@ -305,12 +305,6 @@ a, button, input[type=submit] { transition: all .1s linear }
 
 
 
-/** Regulamento
- * ----------------------------------------- */
-
-
-
-
 /** Icones
  * ----------------------------------------- */
 .icon{
@@ -320,6 +314,31 @@ a, button, input[type=submit] { transition: all .1s linear }
         background: url("../img/icon/alert-icon-red.svg") no-repeat;
         width: 22px;
         height: 19px;
+    }
+    .icon--facebook{
+        background: url("../img/icon/facebook-icon-hover.png") no-repeat;
+        width: 40px;
+        height: 40px;
+    }
+    .icon--twitter{
+        background: url("../img/icon/twitter-icon-hover.png") no-repeat;
+        width: 40px;
+        height: 40px;
+    }
+    .icon--whatsapp{
+        background: url("../img/icon/whatsapp-icon.svg") no-repeat;
+        width: 40px;
+        height: 40px;
+    }
+    .icon--copy{
+        background: url("../img/icon/copy-icon-hover.png") no-repeat;
+        width: 40px;
+        height: 40px;
+    }
+    .icon--email{
+        background: url("../img/icon/email-icon-hover.png") no-repeat;
+        width: 40px;
+        height: 40px;
     }
 
 
@@ -364,52 +383,68 @@ a, button, input[type=submit] { transition: all .1s linear }
         }
 
 
-/** Steps
+
+
+/** Telas / Steps
  * ----------------------------------------- */
-.steps{    
-    height: 92vh;
+.header-title{
+    padding-bottom: 35vh;
+    background: #fafafa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-    .steps > div{
-        padding: 15px;        
+
+.header-title .bloco{
+    left: 50%;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    padding: 0 2em
+}    
+.header-title h2, 
+.header-title img{
+    margin-bottom: 0.7em;
+}
+#linkCopy{
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(250%);
+    top: -50%;
+}
+
+.header-step2,
+.header-step3{
+    display: none;
+}
+
+.share-social{}
+    .share-social__item{
+        display: inline-block;
+        margin: 30px 5px 0;
+    }
+/*step geral*/
+.steps{}
+    .steps > div{        
         background: #fff;
         position: absolute;
-        width: 100%;
-        min-height: 100%;
+        width: 100%;   
     }
-    .steps > div:not(:first-of-type){
+    /*.steps > div:not(:first-of-type){
         display:none
-    }
-
-    .header-title{
-        padding-bottom: 35vh;
-        background: #fafafa;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .header-title .bloco{
-        left: 50%;
-        top: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-        height: auto;
-        padding: 0 2em
-    }    
-    .header-title h2, 
-    .header-title img{
-        margin-bottom: 0.7em;
-    }
-
-    .header-step2,
-    .header-step3{
+    }*/
+.step-1,
+.step-3{
         display: none;
     }
     
-    /*step 1*/
+    
+/*step 1*/
     .steps-1{
         text-align: center;
     }
         .lkn-regulamento{
-            padding-bottom: 24vh;
+            padding-bottom: 20vh;
         }
         .lkn-regulamento .bloco{    
             left: 50%;
@@ -418,14 +453,10 @@ a, button, input[type=submit] { transition: all .1s linear }
             transform: translate(-50%, -50%);
             height: auto;
             padding: 0 2em;
-        }
+        }   
+   
 
-    /*step 2*/       
-    .step-2 .lkn-share{                        
-        font-weight: 700;                                                            
-    }
-
-    /*step 3 - regulamento*/    
+/*step 3*/    
     .step-3 .info{
         padding: 1.5em 1em 0 1em;
     }
